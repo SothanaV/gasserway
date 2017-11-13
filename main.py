@@ -26,12 +26,25 @@ def getdata3(gas3):
 	socketio.emit('s2c_3',gas3)
 	return command3
 
-@socketio.on('c2s_com')
-def getcom(com):
-	global command
-	command = com
-	print(com)
-	return command
+@socketio.on('c2s_com1')
+def getcom1(com1):
+	global command1
+	command1 = com1
+	print(com1)
+	return command1
+@socketio.on('c2s_com2')
+def getcom2(com2):
+	global command2
+	command2 = com2
+	print(com2)
+	return command2
+@socketio.on('c2s_com3')
+def getcom3(com1):
+	global command1
+	command3 = com3
+	print(com3)
+	return command3
+
 
 	
 @app.route("/home")

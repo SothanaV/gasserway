@@ -6,6 +6,8 @@
 const char* ssid     = "iot";            //Set ssid
 const char* password = "12345678";                    //Set Password
 const char* Server   = "192.168.200.27";           //set Server Domain or Server ip
+const char* port     = "5001";
+const char* nodeid   = "1";
 ESP8266WiFiMulti WiFiMulti;
 
 float voltage;
@@ -26,7 +28,7 @@ void left();
 void stopping();
 void setup() 
 {
-   pinMode(led_pin,OUTPUT);
+  pinMode(led_pin,OUTPUT);
   pinMode(L1, OUTPUT);
   pinMode(L2, OUTPUT);
   pinMode(R1, OUTPUT);
@@ -68,8 +70,14 @@ void loop()
     Serial.print("\n\n");
     SendData(sensor_ppm);
     delay(100);
-
-}
+    if(sensor_ppm>WarningValue)
+    {
+      digitalWrite(led_pin,HIGH);
+    }
+    if(sensor_ppm<WarningValue)
+    {
+      digitalWrite(led_pin,LOW);
+    }
 
 void SendData(float sensor_ppm) 
 {
@@ -78,7 +86,7 @@ void SendData(float sensor_ppm)
     if((WiFiMulti.run() == WL_CONNECTED)) 
     {
         HTTPClient http;
-        String str = "http://" +String(Server)+":5001" +"/data/" + String(sensor_ppm)+"/";
+        String str = "http://" +String(Server)+":"+port+"/data"+nodeid+"/" + String(sensor_ppm)+"/";
         Serial.println(str);
         http.begin(str);
         int httpCode = http.GET();

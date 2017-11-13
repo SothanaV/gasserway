@@ -65,27 +65,27 @@
 	var socket = io();
 	function Forword(Forword)
 	{
-		socket.emit('c2s_com',"F");
+		socket.emit('c2s_com2',"F");
 		console.log("Forword");
 	}
 	function Backword(Backword)
 	{
-		socket.emit('c2s_com',"B");
+		socket.emit('c2s_com2',"B");
 		console.log("Backword");
 	}
 	function Left(Left)
 	{
-		socket.emit('c2s_com',"L");
+		socket.emit('c2s_com2',"L");
 		console.log("Left");
 	}
 	function Right(Right)
 	{
-		socket.emit('c2s_com',"R");
+		socket.emit('c2s_com2',"R");
 		console.log("Right");
 	}
 	function Stop(Stop)
 	{
-		socket.emit('c2s_com',"S");
+		socket.emit('c2s_com2',"S");
 		console.log("Stop");
 	}
 </script>
