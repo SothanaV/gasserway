@@ -5,9 +5,9 @@
 #define USE_SERIAL Serial
 const char* ssid     = "iot";            //Set ssid
 const char* password = "12345678";                    //Set Password
-const char* Server   = "192.168.200.27";           //set Server Domain or Server ip
+const char* Server   = "139.59.99.17";           //set Server Domain or Server ip
 const char* port     = "5001";
-const char* nodeid   = "1";
+const char* nodeid   = "3";
 ESP8266WiFiMulti WiFiMulti;
 
 float voltage;
@@ -26,6 +26,7 @@ void backward();
 void right();
 void left();
 void stopping();
+
 void setup() 
 {
   pinMode(led_pin,OUTPUT);
@@ -70,6 +71,7 @@ void loop()
     Serial.print("\n\n");
     SendData(sensor_ppm);
     delay(100);
+    float WarningValue = 1000.00;
     if(sensor_ppm>WarningValue)
     {
       digitalWrite(led_pin,HIGH);
@@ -78,7 +80,7 @@ void loop()
     {
       digitalWrite(led_pin,LOW);
     }
-
+}
 void SendData(float sensor_ppm) 
 {
   
@@ -97,25 +99,25 @@ void SendData(float sensor_ppm)
               {
                 String payload = http.getString();
       //-------------------Control----------------------------//
-                USE_SERIAL.print("payload");
+                USE_SERIAL.print("payload ");
                 USE_SERIAL.println(payload);
-                if(payload="F")
+                if(payload == "F")
                 {
                   forward();
                 }
-                if(payload="B")
+                if(payload == "B")
                 {
                   backward();
                 }
-                if(payload="R")
+                if(payload == "R")
                 {
                   right();
                 }
-                if(payload="L")
+                if(payload == "L")
                 {
                   left();
                 }
-                if(payload="S")
+                if(payload == "S")
                 {
                   stopping();
                 }
@@ -130,7 +132,7 @@ void forward()
   digitalWrite(R1, HIGH);  
   digitalWrite(L2, LOW);   
   digitalWrite(R2, LOW);   
-  
+  Serial.println("Forward");
   //server.send(204," "); 
 }
 void backward()
@@ -139,7 +141,7 @@ void backward()
   digitalWrite(R2, HIGH);  
   digitalWrite(L1, LOW);   
   digitalWrite(R1, LOW);  
-  
+  Serial.println("Backward");
   //server.send(204," "); 
 }
 void right()
@@ -154,6 +156,7 @@ void right()
   digitalWrite(R1,LOW);
   digitalWrite(R2,LOW);
   delay(100);
+  Serial.println("Right");
   //server.send(204,"");
 }
 void left()
@@ -168,6 +171,7 @@ void left()
   digitalWrite(R1, LOW);  
   digitalWrite(R2, LOW);   
     delay(100);
+  Serial.println("Left");
   // server.send(204," "); 
 }
 void stopping()
@@ -177,5 +181,6 @@ void stopping()
   digitalWrite(R1, LOW);  
   digitalWrite(R2, LOW);   
     delay(1000);
+  Serial.println("Stop");
   //server.send(204," "); 
 }

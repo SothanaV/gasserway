@@ -39,7 +39,7 @@ def getcom2(com2):
 	print(com2)
 	return command2
 @socketio.on('c2s_com3')
-def getcom3(com1):
+def getcom3(com3):
 	global command1
 	command3 = com3
 	print(com3)
