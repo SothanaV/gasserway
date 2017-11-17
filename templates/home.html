@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Control</title>
+  <title>HOME</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
@@ -25,9 +25,10 @@
 	<script src="{{ url_for('static', filename='socket.io-1.2.0.js') }}"></script>
 </head>
 
-<body>
+<body> 
+
 	<div class="jumbotron text-center">
-  		<h1>Sensor Gas</h1>
+  		<div style="color:blue"><h1>Sensor Gas</h1></div>
 
   	</div>
 
@@ -45,7 +46,7 @@
 	</div>
 	<div id="gas3" class="col-sm-4">
 		
-			
+
 				<h3 style="text-align:center;">GasSensor 3
 					<a id="gas_3" style="color: black"></a>
 		<div id="real-time-linegas3" class="epoch" style="height: 150px; position: relative;" data-epoch-container-id="epoch-container-6"> </div>
@@ -70,7 +71,7 @@
     	{
     		document.getElementById("gas1").style.backgroundColor = "red";		
     	}
-    	if (showgas1 <1000)
+    	if (showgas1 <=1000)
     	{
     		document.getElementById("gas1").style.backgroundColor = "white";
     	}
@@ -83,7 +84,7 @@
     	{
     		document.getElementById("gas2").style.backgroundColor = "red";		
     	}
-    	if (showgas2 <1000)
+    	if (showgas2 <=1000)
     	{
     		document.getElementById("gas2").style.backgroundColor = "white";
     	}
@@ -96,7 +97,7 @@
     	{
     		document.getElementById("gas3").style.backgroundColor = "red";		
     	}
-    	if (showgas3 <1000)
+    	if (showgas3 <=1000)
     	{
     		document.getElementById("gas3").style.backgroundColor = "white";
     	}

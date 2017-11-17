@@ -23,38 +23,32 @@
 	<script src="{{ url_for('static', filename='ZeroClipboard.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='moment.js') }}"></script>
 	<script src="{{ url_for('static', filename='socket.io-1.2.0.js') }}"></script>
+
 </head>
 
-<body>
+<body style="background-color:pink" >
 	<div class="jumbotron text-center">
-  		<h1>GasSerWay</h1>  
+  		<h1>GasSerWay</h1>
 	</div>
+	
 	<div class="container">
   		<div class="row">
 			<div>
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
-					<button id="Forword" onclick="Forword(Forword);"> Forword </button>
+				<center><button id="Forward" onclick="Forward(Forward);" style="background-color:lightblue"> <h3>Forward</h3> </button> </center>
 				</div>
 			</div>
+			<br>
 			<div>
 				<div class="col-sm-4">
-					<button id="Backword" onclick="Backword(Backword);"> Backword </button>
+				<center>	<button id="Left" onclick="Left(Left);" style="background-color:lightblue"><h3> Left</h3> </button> <button id="Stop" onclick="Stop(Stop);" style="background-color:gold" ><h2> Stop</h2> </button> <button id="Right" onclick="Right(Right);" style="background-color:lightblue"><h3> Right</h3> </button> </center>
 				</div>
 			</div>
+			<br>
 			<div>
 				<div class="col-sm-4">
-					<button id="Left" onclick="Left(Left);"> Left </button>
-				</div>
-			</div>	
-			<div>
-				<div class="col-sm-4">
-					<button id="Right" onclick="Right(Right);"> Right </button>
-				</div>
-			</div>
-			<div>
-				<div class="col-sm-4">
-					<button id="Stop" onclick="Stop(Stop);"> Stop </button>
+				<center><button id="Backward" onclick="Backward(Backward);" style="background-color:lightblue"><h3> Backward</h3> </button></center>
 				</div>
 			</div>			
 		</div>
@@ -63,15 +57,15 @@
 
 <script type="text/javascript">
 	var socket = io();
-	function Forword(Forword)
+	function Forward(Forward)
 	{
 		socket.emit('c2s_com1',"F");
-		console.log("Forword");
+		console.log("Forward");
 	}
-	function Backword(Backword)
+	function Backward(Backward)
 	{
 		socket.emit('c2s_com1',"B");
-		console.log("Backword");
+		console.log("Backward");
 	}
 	function Left(Left)
 	{

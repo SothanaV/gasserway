@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Control</title>
+  <title>Control3</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
@@ -25,7 +25,7 @@
 	<script src="{{ url_for('static', filename='socket.io-1.2.0.js') }}"></script>
 </head>
 
-<body>
+<body style="background-color:pink" >
 	<div class="jumbotron text-center">
   		<h1>GasSerWay</h1>  
 	</div>
@@ -34,27 +34,19 @@
 			<div>
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
-					<button id="Forword" onclick="Forword(Forword);"> Forword </button>
+				<center><button id="Forward" onclick="Forward(Forward);" style="background-color:lightblue" style="width:100;height:100"><h3> Forward</h3> </button> </center>
 				</div>
 			</div>
+			<br>
 			<div>
 				<div class="col-sm-4">
-					<button id="Backword" onclick="Backword(Backword);"> Backword </button>
+				<center>	<button id="Left" onclick="Left(Left);" style="background-color:lightblue"><h3>Left</h3></button>  <button id="Stop" onclick="Stop(Stop);" style="background-color:gold" ><h2> Stop</h2> </button> <button id="Right" onclick="Right(Right);" style="background-color:lightblue"><h3> Right</h3> </button> </center>
 				</div>
 			</div>
+			<br>
 			<div>
 				<div class="col-sm-4">
-					<button id="Left" onclick="Left(Left);"> Left </button>
-				</div>
-			</div>	
-			<div>
-				<div class="col-sm-4">
-					<button id="Right" onclick="Right(Right);"> Right </button>
-				</div>
-			</div>
-			<div>
-				<div class="col-sm-4">
-					<button id="Stop" onclick="Stop(Stop);"> Stop </button>
+				<center><button id="Backward" onclick="Backward(Backward);" style="background-color:lightblue"><h3> Backward</h3> </button></center>
 				</div>
 			</div>			
 		</div>
