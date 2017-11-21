@@ -25,29 +25,29 @@
 	<script src="{{ url_for('static', filename='socket.io-1.2.0.js') }}"></script>
 </head>
 
-<body> 
+<body style="background-color:lightblue"> 
 
 	<div class="jumbotron text-center">
   		<div style="color:blue"><h1>Sensor Gas</h1></div>
 
   	</div>
 
-	<div id="gas1" class="col-sm-4" style="background-color: white">
+	<div id="gas1" class="col-sm-4" >
 		
-				<h3 style="text-align:center;">GasSensor 1
+				<h2 style="text-align:center;" >GasSensor 1
 					<a id="gas_1" style="color: black"></a>
 		<div id="real-time-linegas1" class="epoch" style="height: 150px; position: relative;" data-epoch-container-id="epoch-container-6"> </div>
 	</div>
 	<div id="gas2" class="col-sm-4">
 		
-				<h3 style="text-align:center;">GasSensor 2
+				<h2 style="text-align:center;">GasSensor 2
 					<a id="gas_2" style="color: black"></a>
 		<div id="real-time-linegas2" class="epoch" style="height: 150px; position: relative;" data-epoch-container-id="epoch-container-6"> </div>
 	</div>
 	<div id="gas3" class="col-sm-4">
 		
 
-				<h3 style="text-align:center;">GasSensor 3
+				<h2 style="text-align:center;">GasSensor 3
 					<a id="gas_3" style="color: black"></a>
 		<div id="real-time-linegas3" class="epoch" style="height: 150px; position: relative;" data-epoch-container-id="epoch-container-6"> </div>
 	</div>
