@@ -1,0 +1,11 @@
+version: '2'
+services:
+  gas:
+    container_name: gas
+    build: ./gas
+    restart: always
+    ports:
+        - "81:5001"
+    volumes:
+      - ./gas:/gas
+    command: sh runflask.sh
